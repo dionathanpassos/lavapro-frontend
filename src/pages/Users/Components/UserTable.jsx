@@ -1,9 +1,9 @@
 import { Pencil } from "lucide-react";
-import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";
 import Switch from "../../../components/Swicth/Swicth";
 import { formatPhone } from "../../../utils/Formatted/formatPhone";
 import UserFilter from "./UserFilter";
 import { useState } from "react";
+import { formatDateTime } from "../../../utils/Formatted/formatDateTime";
 
 export default function UserTable({
   users,

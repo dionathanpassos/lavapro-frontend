@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { activateUser, createUser, deactivateUser, getUserIndicators, getUsers, updateUser } from "../../services/userService";
 import UserFormDrawer from "./Components/UserFormDrawer";
 import { useNavigate } from "react-router";
-import UserTable from "./Components/USerTable";
+import UserTable from "./Components/UserTable";
 
 export default function UserPage() {
   const [users, setUsers] = useState([]);
