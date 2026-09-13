@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme inline {
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-lexend: "Lexend", sans-serif;
+
+  --color-background: var(--background);
+  --color-background-white: var(--background-white);
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-hover: var(--sidebar-hover);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-light: var(--destructive-light);
+
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+
+  --color-warning: var(--warning);
+  --color-warning-light: var(--warning-light);
+  
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+  --color-border: var(--border);
+
+  --color-status-waiting: var(--status-waiting);
+  --color-status-waiting-bg: var(--status-waiting-bg);
+
+  --color-status-progress: var(--status-progress);
+  --color-status-progress-bg: var(--status-progress-bg);
+
+  --color-status-ready: var(--status-ready);
+  --color-status-ready-bg: var(--status-ready-bg);
+
+  --color-status-delivered: var(--status-delivered);
+  --color-status-delivered-bg: var(--status-delivered-bg);
+
+  --color-status-cancelled: var(--status-cancelled);
+  --color-status-cancelled-bg: var(--status-cancelled-bg);
+
+}
+
+:root {
+
+  /* ====================================================================== */
+  /* Background */
+  /* ====================================================================== */
+
+  --background: #F8FAFC;
+  --background-white: #FFFFFF;
+  --background-hover: #F1F5F9;
+  --sidebar-background: #0F172A;
+  --sidebar-hover: #1E293B;
+  --header-background: #FFFFFF;
+
+  /* ====================================================================== */
+  /* Primary */
+  /* ====================================================================== */
+
+  --primary: #2563EB;
+  --secondary: #F97316;
+  --primary-hover: #1D4ED8;
+  --primary-active: #1E40AF;
+
+  /* ====================================================================== */
+  /* Text */
+  /* ====================================================================== */
+
+  --foreground: #111827;
+  --foreground-secondary: #eff2f5;
+  --muted-foreground: #64748B;
+  --disabled-foreground: #94A3B8;
+
+  /* ====================================================================== */
+  /* Border */
+  /* ====================================================================== */
+
+  --border: #CBD5E1;
+
+  /* ====================================================================== */
+  /* Inputs */
+  /* ====================================================================== */
+
+  --input-background: #FFFFFF;
+  --input-border: #CBD5E1;
+  --input-placeholder: #94A3B8;
+  --input-focus: #2563EB;
+
+  /* ====================================================================== */
+  /* Buttons */
+  /* ====================================================================== */
+
+  --secondary: #FFFFFF;
+  --secondary-hover: #F8FAFC;
+  --secondary-foreground: #334155;
+
+  /* ====================================================================== */
+  /* Success */
+  /* ====================================================================== */
+
+  --success: #16A34A;
+  --success-foreground: #FFFFFF;
+  --success-light: #DCFCE7;
+
+  /* ====================================================================== */
+  /* Warning */
+  /* ====================================================================== */
+
+  --warning: #F59E0B;
+  --warning-foreground: #FFFFFF;
+  --warning-light: #FEF3C7;
+
+  /* ====================================================================== */
+  /* Danger */
+  /* ====================================================================== */
+
+  --destructive: #DC2626;
+  --destructive-hover: #B91C1C;
+  --destructive-foreground: #FFFFFF;
+  --destructive-light: #FEE2E2;
+
+  /* ====================================================================== */
+  /* Info */
+  /* ====================================================================== */
+
+  --info: #2563EB;
+  --info-light: #DBEAFE;
+
+  /* ====================================================================== */
+  /* Status - Service Order */
+  /* ====================================================================== */
+
+  --status-waiting: #92400E;
+  --status-waiting-bg: #FEF3C7;
+
+  --status-progress: #1D4ED8;
+  --status-progress-bg: #DBEAFE;
+
+  --status-ready: #166534;
+  --status-ready-bg: #DCFCE7;
+
+  --status-delivered: #6D28D9;
+  --status-delivered-bg: #EDE9FE;
+
+  --status-cancelled: #991B1B;
+  --status-cancelled-bg: #FEE2E2;
+
+  /* ====================================================================== */
+  /* Cards */
+  /* ====================================================================== */
+
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--sidebar-background);
+    color:var(--foreground);
+  }
+}
