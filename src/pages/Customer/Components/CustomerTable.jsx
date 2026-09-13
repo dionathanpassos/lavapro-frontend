@@ -1,5 +1,4 @@
 import { ChevronRight, Eye, Info, Pencil, Phone } from "lucide-react";
-import Input from "../../../components/Input/Input";
 import Select from "../../../components/Select/Select";
 import { formatPhone } from "../../../utils/Formatted/formatPhone";
 import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";

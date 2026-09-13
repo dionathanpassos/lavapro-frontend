@@ -2,7 +2,7 @@ import { formatToBRL } from "../../../utils/Formatted/FormatToBRL";
 import { formatPlate } from "../../../utils/Formatted/FormatPlate";
 import { CarFront, ChevronRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { formatDateTime } from "../../../utils/Formatted/formatDateTime";
+import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";
 
 
 

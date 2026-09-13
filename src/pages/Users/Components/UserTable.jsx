@@ -3,7 +3,7 @@ import Switch from "../../../components/Swicth/Swicth";
 import { formatPhone } from "../../../utils/Formatted/formatPhone";
 import UserFilter from "./UserFilter";
 import { useState } from "react";
-import { formatDateTime } from "../../../utils/Formatted/formatDateTime";
+import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";
 
 export default function UserTable({
   users,

@@ -3,7 +3,6 @@ import CashFlowFilter from "./CashFlowFilter";
 import { formatToBRL } from "../../../utils/Formatted/FormatToBRL";
 import { formatPlate } from "../../../utils/Formatted/FormatPlate";
 import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

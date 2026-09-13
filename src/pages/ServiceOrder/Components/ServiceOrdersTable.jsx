@@ -5,7 +5,7 @@ import { formatPlate } from "../../../utils/Formatted/FormatPlate";
 import { formatToBRL } from "../../../utils/Formatted/FormatToBRL";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { formatDateTime } from "../../../utils/Formatted/formatDateTime";
+import { formatDateTime } from "../../../utils/Formatted/FormatDateTime";
 
 export default function ServiceOrdersTable({
   serviceOrders,
