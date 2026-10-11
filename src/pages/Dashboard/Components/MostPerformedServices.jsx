@@ -5,7 +5,7 @@ export default function MostPerformedServices({ services }) {
   const data = temDados ? transformAndRankServices(services) : [];
 
   return (
-    <div className="w-full  min-h-90 bg-white p-6 border border-gray-100 shadow-sm font-sans flex flex-col justify-between">
+    <div className="w-full rounded-xl min-h-90 bg-white p-6 border border-gray-100 shadow-sm font-sans flex flex-col justify-between">
       
       <div>
         {/* Cabeçalho */}
