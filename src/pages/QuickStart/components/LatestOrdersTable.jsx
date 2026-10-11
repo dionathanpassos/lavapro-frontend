@@ -25,11 +25,12 @@ export default function LatestOrdersTable({ serviceOrders }) {
       </div>
 
       {/* Lista */}
-      <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto rounded-lg border border-border p-2 scrollbar-none">
+      {/* <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto rounded-lg border border-border p-2 scrollbar-none"> */}
+      <div className="flex flex-col flex-1 min-h-0 md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 md:content-start md:items-start gap-4 overflow-y-auto rounded-lg border border-border p-4 scrollbar-none shadow-md bg-white">
         {serviceOrders.map((order) => (
           <div
             key={order.id}
-            className="flex shrink-0 items-center justify-between gap-4 rounded-lg border border-border/50 bg-white px-4 py-4 shadow-md"
+            className="flex shrink-0 items-center justify-between gap-4 rounded-lg border border-border/50 bg-white px-4 py-4 shadow-md max-h-35"
           >
             <div className="flex min-w-0 items-center gap-3">
               <div className="h-full flex flex-col items-center gap-2">

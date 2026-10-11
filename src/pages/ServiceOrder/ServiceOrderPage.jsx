@@ -44,7 +44,7 @@ export default function ServiceOrder() {
     sort: "",
   });
   const [page, setPage] = useState(0);
-  const [size, setSize] = useState(5);
+  const [size, setSize] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
   const [totalServiceOrders, setTotalServiceOrders] = useState();
   const [status, setStatus] = useState();

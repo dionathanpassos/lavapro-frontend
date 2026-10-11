@@ -1,11 +1,30 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet, useLocation } from "react-router";
+import { isTokenValid } from "./auth";
+import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 export default function PrivateRoute() {
-    const token = localStorage.getItem("token");
+  const location = useLocation();
+  const [authenticated, setAuthenticated] = useState(isTokenValid());
 
-    if(!token) {
-        return <Navigate to={"/auth/login"} replace/>
+  useEffect(() => {
+    const valid = isTokenValid();
+
+    setAuthenticated(valid);
+    if(!valid) {
+        toast.error("Sessão expirada, efetue login novamente.", {
+        id: "session-expired-toast",
+      });
+        localStorage.removeItem("token");
     }
+    
+  }, [location.pathname]);
 
-    return <Outlet/>
+  if (!authenticated) {
+    return <Navigate to="/auth/login" replace />;
+  }
+
+
+
+  return <Outlet />;
 }

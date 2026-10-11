@@ -4,8 +4,6 @@ import { ROLES } from "../Auth/roles";
 
 export default function HomeRedirect() {
     const user = getAuthenticatedUser();
-    console.log("USER:", user);
-    console.log("ROLE:", user?.role);
 
     if (!user) {
         return <Navigate to="/auth/login" replace />;

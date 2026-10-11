@@ -12,7 +12,7 @@ export default function ChartsDonut({ serviceOrders, title, type = "integer" }) 
   
   return num;
 };
-
+console.log(serviceOrders)
   const temDados = serviceOrders && Object.keys(serviceOrders).length > 0;
 
   const entradasFiltradas = temDados 
@@ -33,6 +33,7 @@ export default function ChartsDonut({ serviceOrders, title, type = "integer" }) 
       color: getStatusClasses(key.toLocaleLowerCase()),
     };
   });
+  console.log(data)
 
   return (
     <div className="w-full min-h-90 bg-white p-6 rounded-xl shadow-sm border border-border/30 flex flex-col justify-between">
@@ -150,10 +151,15 @@ export default function ChartsDonut({ serviceOrders, title, type = "integer" }) 
 
 const getStatusText = (status) => {
   if (status === "WAITING") return "Aguardando";
-  if (status === "INPROGRESS") return "Em andamento";
+  if (status === "IN_PROGRESS" || status == "INPROGRESS") return "Em andamento";
   if (status === "READY") return "Concluída";
   if (status === "DELIVERED") return "Entregue";
   if (status === "CANCELED") return "Cancelado";
+  if (status === "PIX") return "Pix";
+  if (status === "DEBIT_CARD") return "Cartão de Débito";
+  if (status === "CREDIT_CARD") return "Cartão de Crédito";
+  if (status === "CASH") return "Dinheiro";
+  if (status === "BANK_TRANSFER") return "Transferência";
   return status;
 };
 
@@ -163,7 +169,7 @@ const getStatusClasses = (status) => {
     case "credit_card":
       return "#116bf6";
 
-    case "inProgress":
+    case "inprogress":
     case "bank_transfer":
       return "#ffb100";
 

@@ -6,7 +6,6 @@ import { register } from "../../services/authService";
 import toast from "react-hot-toast";
 
 export default function Register() {
-  // 1. Estado para armazenar os dados do formulário
   const [formData, setFormData] = useState({
     name: "",
     companyName: "",
@@ -15,14 +14,11 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
-  const [error, setError] = useState(null);
 
-  // Estados extras para feedback do usuário
   const [fieldErrors, setFieldErrors] = useState({});
 
   const [loading, setLoading] = useState(false);
 
-  // 2. Atualiza o estado conforme o usuário digita
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -33,10 +29,10 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    setFieldErrors({})
 
      if (formData.password !== formData.confirmPassword) {
-      setError("As senhas não coincidem.");
+      setFieldErrors({confirmPassword: "As senhas não coincidem."});
       return;
     }
 
@@ -52,24 +48,23 @@ export default function Register() {
       });
 
       toast.success("Registro criado com sucesso! Redirecionando...")
-      window.location.href = "/auth/login"; // Ou use o hook de navegação do seu framework (ex: useNavigate do react-router)
+      window.location.href = "/auth/login";
       
     } catch (error) {
-      console.error(error);
-      setFieldErrors(error.response?.data.fieldErrors || "Ocorreu um erro ao criar a conta.");
+      const mensagemDoBackend =
+        error.response?.data?.message || error.message;
+        toast.error(mensagemDoBackend || "Erro ao conectar com o servidor.");
+        setFieldErrors(error.response?.data.fieldErrors);
     } finally {
       setLoading(false);
     }
   };
 
-  console.log(formData)
-
-
   return (
     <div className="w-full max-w-md rounded-lg overflow-hidden px-6">
       <Card>
-        <div className="w-fit m-auto text-center bg-primary/80 text-primary-foreground p-5 rounded-lg mt-2 shadow-lg">
-          <span className="text-xl font-extrabold">LP</span>
+        <div className="w-fit m-auto text-center bg-primary text-primary-foreground p-4 rounded-lg mt-2 shadow-lg">
+            <span className="text-2xl font-extrabold text-white">LP</span>
         </div>
         <header className="text-center text-foreground text-xl my-6">
           Crie sua conta do LavaPro

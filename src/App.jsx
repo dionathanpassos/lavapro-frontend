@@ -13,6 +13,9 @@ function App() {
           style: {
             background: "#333",
             color: "#fff",
+            whiteSpace: "nowrap",
+            maxWidth: "none",     // Impede que a biblioteca limite a largura do toast
+            display: "inline-flex"
           },
         }}
       />

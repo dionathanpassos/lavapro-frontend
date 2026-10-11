@@ -8,7 +8,6 @@ import {
   CreditCard,
   CircleDollarSign,
   Phone,
-  Edit3,
   X,
   Check,
 } from "lucide-react";
@@ -221,7 +220,7 @@ export default function ServiceOrderDetailsPage({
           {activeTab === "Resumo" && (
             <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_330px]">
           
-              <div className="space-y-4">
+              <div className="space-y-4 flex flex-col justify-between">
                 <section className="rounded-xl border border-border bg-white shadow-sm">
                   <div className="border-b border-slate-100 px-5 py-3">
                     <h2 className="text-sm font-semibold text-slate-900">
@@ -233,7 +232,9 @@ export default function ServiceOrderDetailsPage({
                     <div className="flex flex-col gap-6 sm:flex-row">
                       <InfoItem
                         label="Nº da OS"
-                        value={`#${serviceOrder.id}`}
+                        value={
+                        <span className="font-bold">#{serviceOrder.id}</span>
+                      }
                       />
 
                       <InfoItem
@@ -277,9 +278,7 @@ export default function ServiceOrderDetailsPage({
                       </p>
                     </div>
 
-                    <button className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
-                      <Edit3 size={16} />
-                    </button>
+                   
                   </div>
 
                   <div className="flex flex-col gap-5 px-5 py-3 sm:flex-row sm:items-center">
@@ -341,9 +340,7 @@ export default function ServiceOrderDetailsPage({
                       </p>
                     </div>
 
-                    <button className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
-                      <Edit3 size={16} />
-                    </button>
+                    
                   </div>
 
                   <div className="flex flex-col gap-5 px-5 py-3 sm:flex-row sm:items-center">
@@ -397,14 +394,6 @@ export default function ServiceOrderDetailsPage({
                   onChangeStaus={() => setModalConfirm(true)}
                 />
               </div>
-              { modalConfirm && (
-                <ModalChangeStatus
-                  isOpen={true}
-                  onConfirm={handleChangeStatus}
-                  onClose={() => setModalConfirm(false)}
-                />
-              )}
-
              
               <aside className="space-y-4">
                 {/* VALORES */}
@@ -602,6 +591,14 @@ export default function ServiceOrderDetailsPage({
                   </div>
                 </section>
               </aside>
+
+              { modalConfirm && (
+                <ModalChangeStatus
+                  isOpen={true}
+                  onConfirm={handleChangeStatus}
+                  onClose={() => setModalConfirm(false)}
+                />
+              )}
             </div>
           )}
 
@@ -845,10 +842,10 @@ export default function ServiceOrderDetailsPage({
 const InfoItem = ({ label, value, icon: Icon }) => {
   return (
     <div>
-      <span className="text-xs font-medium text-slate-400">{label}</span>
+      <span className="text-xs font-medium text-muted-foreground">{label}</span>
 
-      <div className="mt-1 flex items-center gap-2 text-sm text-slate-700">
-        {Icon && <Icon size={15} className="text-slate-400" />}
+      <div className="mt-1 flex items-center gap-2 text-sm text-foreground">
+        {Icon && <Icon size={15} className="text-muted-foreground" />}
 
         <span>{value}</span>
       </div>
