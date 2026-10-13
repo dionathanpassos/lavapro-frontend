@@ -15,9 +15,9 @@ export default function VehicleFormDrawer({
   return (
     <div
       className={`
-        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full md:h-dvh md:w-110 
+        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full  md:w-110 
         bg-background-white px-6 py-12 
-        border-l border-border shadow-2xl 
+        border-l border-border
         flex flex-col z-50 min-h-0
         transition-transform duration-300 ease-in-out
         ${open ? "translate-x-0" : "translate-x-full"}
