@@ -3,11 +3,19 @@ import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 import { formatPhone } from "../../../utils/Formatted/formatPhone";
 
-export default function VehicleDetailDrawer({ open, onClose, vehicle, onEdit }) {
+export default function VehicleDetailDrawer({
+  open,
+  onClose,
+  vehicle,
+  onEdit,
+}) {
   return (
     <div
       className={`
-        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full md:w-110 bg-background-white px-6 py-12 border-l border-border shadow-2xl flex flex-col z-50
+        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full md:h-dvh md:w-110 
+        bg-background-white px-6 py-12 
+        border-l border-border shadow-2xl 
+        flex flex-col z-50 min-h-0
         transition-transform duration-300 ease-in-out
         ${open ? "translate-x-0" : "translate-x-full"}
       `}
@@ -19,64 +27,66 @@ export default function VehicleDetailDrawer({ open, onClose, vehicle, onEdit }) 
         </span>
       </header>
 
-      <form className="flex flex-col flex-1 justify-between gap-6 ">
-        <div className="flex flex-col gap-6">
-          <span className="font-semibold border-b border-border py-4">
-            Dados do veículo
-          </span>
-          <Input
-            label={"Placa"}
-            name={"plate"}
-            type={"text"}
-            value={vehicle.plate}
-          />
+      <form className="flex flex-col flex-1 min-h-0">
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain py-6">
+          <div className="flex flex-col gap-6">
+            <span className="font-semibold border-b border-border py-4">
+              Dados do veículo
+            </span>
+            <Input
+              label={"Placa"}
+              name={"plate"}
+              type={"text"}
+              value={vehicle.plate}
+            />
 
-          <Input
-            label={"Modelo"}
-            name={"model"}
-            type={"text"}
-            value={vehicle.model}
-          />
-          <Input
-            label={"Marca"}
-            name={"brand"}
-            type={"text"}
-            value={vehicle.brand}
-          />
-          <div className="grid grid-cols-2 gap-4">
             <Input
-              label={"Ano"}
-              name={"year"}
+              label={"Modelo"}
+              name={"model"}
               type={"text"}
-              value={vehicle.year}
-              className={""}
+              value={vehicle.model}
             />
             <Input
-              label={"Cor"}
-              name={"color"}
+              label={"Marca"}
+              name={"brand"}
               type={"text"}
-              value={vehicle.color}
+              value={vehicle.brand}
             />
-          </div>
-          <span className="font-semibold border-b border-border py-4">
-            Cliente
-          </span>
-          {vehicle?.vehicles?.length == 0 ? (
-            <span>Nenhum cliente cadastrado</span>
-          ) : (
-            <div className="flex items-center px-6 py-2 gap-6 border border-border rounded-md">
-              <span className="">
-                <User size={30} />
-              </span>
-              <div className="flex flex-col text-sm ">
-                <span>{vehicle.customer?.name}</span>
-                <span>{formatPhone(vehicle.customer?.phone)}</span>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              <Input
+                label={"Ano"}
+                name={"year"}
+                type={"text"}
+                value={vehicle.year}
+                className={""}
+              />
+              <Input
+                label={"Cor"}
+                name={"color"}
+                type={"text"}
+                value={vehicle.color}
+              />
             </div>
-          )}
+            <span className="font-semibold border-b border-border py-4">
+              Cliente
+            </span>
+            {vehicle?.vehicles?.length == 0 ? (
+              <span>Nenhum cliente cadastrado</span>
+            ) : (
+              <div className="flex items-center px-6 py-2 gap-6 border border-border rounded-md">
+                <span className="">
+                  <User size={30} />
+                </span>
+                <div className="flex flex-col text-sm ">
+                  <span>{vehicle.customer?.name}</span>
+                  <span>{formatPhone(vehicle.customer?.phone)}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="flex gap-4 justify-end">
+        <div className="shrink-0 flex gap-4 justify-end border-t border-border pt-5">
           <Button
             type={"button"}
             onClick={() => {

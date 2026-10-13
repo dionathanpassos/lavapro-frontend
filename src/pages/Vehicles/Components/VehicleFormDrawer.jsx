@@ -15,15 +15,15 @@ export default function VehicleFormDrawer({
   return (
     <div
       className={`
-        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full md:w-110 
+        fixed top-0 right-0 h-[calc(100dvh-64px)] w-full md:h-dvh md:w-110 
         bg-background-white px-6 py-12 
         border-l border-border shadow-2xl 
-        flex flex-col z-50
+        flex flex-col z-50 min-h-0
         transition-transform duration-300 ease-in-out
         ${open ? "translate-x-0" : "translate-x-full"}
       `}
     >
-      <header className="mb-6">
+      <header className="relative shrink-0 pb-5">
         <h1 className="text-xl font-semibold">
           {editing ? "Editar Veículo" : "Novo Veículo"}
         </h1>
@@ -36,9 +36,10 @@ export default function VehicleFormDrawer({
 
       <form
         onSubmit={onSubmit}
-        className="flex flex-col flex-1 justify-between gap-6 "
+        className="flex flex-col flex-1 min-h-0"
       >
-        <div className="flex flex-col gap-6">
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain py-6">
+          <div className="flex flex-col gap-6">
           <SelectCustomerSearch
             value={form.customerId}
             onChange={onChange}
@@ -94,9 +95,10 @@ export default function VehicleFormDrawer({
               error={errors?.color}
             />
           </div>
+          </div>
         </div>
 
-        <div className="flex gap-4 justify-end">
+        <div className="shrink-0 flex gap-4 justify-end border-t border-border pt-5">
           <Button
             type={"button"}
             action={"cancel"}
