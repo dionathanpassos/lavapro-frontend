@@ -132,7 +132,7 @@ export default function BottonMenu() {
   return (
     <footer
       ref={menuRef}
-      className="relative h-16 w-full bg-background-white border-t border-border/50 py-1 z-50"
+      className="relative shrink-0 h-16 w-full bg-background-white text-white border-t border-border/50 py-1 z-50"
     >
       {isMenuOpen && (
         <div className="absolute bottom-20 right-4 bg-white border border-border/60 shadow-xl rounded-xl p-2 w-48 flex flex-col gap-1 animate-in fade-in slide-in-from-bottom-3 duration-200">
